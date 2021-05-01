@@ -17,6 +17,7 @@ const WEAPONS = {
 		"icon": preload("res://assets/weapon-icons/gun.png"),
 		"scene": preload("res://Weapons/Gun.tscn"),
 		"clip_ammo": 8,
+		"clip_size": 8,
 		"ammo": 32,
 		"max_ammo": 32,
 		"pickup_ammo_amount": 32
@@ -26,6 +27,7 @@ const WEAPONS = {
 		"icon": preload("res://assets/weapon-icons/shotgun.png"),
 		"scene": preload("res://Weapons/Shotgun.tscn"),
 		"clip_ammo": 4,
+		"clip_size": 4,
 		"ammo": 12,
 		"max_ammo": 24,
 		"pickup_ammo_amount": 32
@@ -35,7 +37,8 @@ const WEAPONS = {
 		"icon": preload("res://assets/weapon-icons/assault-rifle.png"),
 		"scene": preload("res://Weapons/Weapon.tscn"),
 		"clip_ammo": 15,
-		"ammo": 50,
+		"clip_size": 15,
+		"ammo": 5,
 		"max_ammo": 150,
 		"pickup_ammo_amount": 50
 	},
@@ -43,10 +46,19 @@ const WEAPONS = {
 		"name": "Sniper Rifle",
 		"icon": preload("res://assets/weapon-icons/sniper-rifle.png"),
 		"scene": preload("res://Weapons/SniperRifle.tscn"),
-		"clip_ammo": 6,
+		"clip_ammo": 4,
+		"clip_size": 4,
 		"ammo": 12,
 		"max_ammo": 32,
 		"pickup_ammo_amount": 12
+	},
+	"Grenade": { 
+		"name": "Grenade",
+		"icon": preload("res://assets/weapon-icons/grenade.png"),
+		"scene": preload("res://Weapons/GrenadeLauncher.tscn"),
+		"ammo": 4,
+		"max_ammo": 12,
+		"pickup_ammo_amount": 4
 	},
 	"Rocket Launcher": { 
 		"name": "Rocket Launcher",
@@ -54,7 +66,7 @@ const WEAPONS = {
 		"scene": preload("res://Weapons/RocketLauncher.tscn"),
 		"ammo": 4,
 		"max_ammo": 12,
-		"pickup_ammo_amount": 3
+		"pickup_ammo_amount": 4
 	},
 	"Air Strike": { 
 		"name": "Air Strike",
@@ -63,14 +75,6 @@ const WEAPONS = {
 		"ammo": 4,
 		"max_ammo": 12,
 		"pickup_ammo_amount": 4
-	},
-	"Grenade": { 
-		"name": "Grenade",
-		"icon": preload("res://assets/weapon-icons/grenade.png"),
-		"scene": preload("res://Weapons/GrenadeLauncher.tscn"),
-		"ammo": 4,
-		"max_ammo": 12,
-		"pickup_ammo_amount": 2 # can't replenish it
 	},
 	"Mine": { 
 		"name": "Mine",

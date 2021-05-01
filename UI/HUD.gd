@@ -38,7 +38,11 @@ func show_tooltip(text):
 func hide_tooltip():
 	$Tooltip.hide()
 
+func pain_effect():
+	$PainEffect.modulate.a = 1
 
+func _physics_process(delta):
+	$PainEffect.modulate.a = lerp($PainEffect.modulate.a,0,1*delta)
 
 func increment_score():
 	score += 1

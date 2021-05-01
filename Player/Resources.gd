@@ -1,6 +1,7 @@
 extends Spatial
 
 onready var HUD = get_node("/root/World/HUD")
+onready var camera = $"../CameraRig"
 
 export (int) var max_health = 100
 var current_health = 100
@@ -20,6 +21,8 @@ func take_damage(damage):
 	if current_health > 0:
 		current_health -= damage
 		HUD.update_healthbar(current_health)
+		HUD.pain_effect()
+		camera.shake_strength += 0.1
 		if current_health <= 0: 
 			print("Die")
 			get_tree().change_scene("res://UI/Start.tscn")

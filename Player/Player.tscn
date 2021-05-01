@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://assets/characters/charlie.fbx" type="PackedScene" id=1]
+[ext_resource path="res://assets/characters/protag.fbx" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Player/CameraRig.gd" type="Script" id=3]
 [ext_resource path="res://assets/icons/target.png" type="Texture" id=4]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Player/Resources.gd" type="Script" id=9]
 [ext_resource path="res://assets/characters/vest.obj" type="ArrayMesh" id=10]
 [ext_resource path="res://assets/materials/lowpoly_material.tres" type="Material" id=11]
+[ext_resource path="res://UI/ProgressBar3D.tscn" type="PackedScene" id=12]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.25, 0.75, 0.25 )
@@ -42,7 +43,7 @@ script = ExtResource( 9 )
 
 [node name="WeaponSwitcher" type="Spatial" parent="."]
 script = ExtResource( 5 )
-default_weapon = "Assault Rifle"
+default_weapon = "Sentry"
 
 [node name="AirStrike" parent="WeaponSwitcher" instance=ExtResource( 6 )]
 
@@ -55,6 +56,9 @@ script = ExtResource( 3 )
 [node name="Camera" type="Camera" parent="CameraRig"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 current = true
+
+[node name="ReloadingBar" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72049, 0 )
 
 [node name="Cursor" type="Spatial" parent="."]
 

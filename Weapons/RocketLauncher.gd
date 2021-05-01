@@ -9,6 +9,7 @@ var rocket_in_the_air
 
 onready var parent = get_parent().get_parent()
 onready var fire_audio = $AudioFire
+onready var audio_empty = $AudioEmpty
 onready var animation = $AnimationPlayer
 onready var switcher = get_parent()
 
@@ -29,6 +30,10 @@ func _physics_process(delta):
 		fire()
 
 func fire():
+	if switcher.get("ammo") == 0:
+		audio_empty.play()
+		return
+	
 	if can_fire:
 		spawn_bullet()
 		fire_audio.play()

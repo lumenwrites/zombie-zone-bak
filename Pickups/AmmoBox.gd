@@ -16,7 +16,14 @@ func use(body):
 		pickup_audio.play()
 		hide()
 
+func _on_AmmoBox_body_entered(body):
+	if  body is Player and body.get_node("WeaponSwitcher").pickup_ammo_box():
+		pickup_audio.play()
+		hide()
+
 func _on_PickupAudio_finished():
 	queue_free()
+
+
 
 

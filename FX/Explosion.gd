@@ -1,5 +1,8 @@
 extends Spatial
 
+onready var camera = get_node("/root/World/Player/CameraRig")
+onready var player = get_node("/root/World/Player")
+
 func _ready():
 #	$Fire.emitting = false
 #	$SmokeCloud.emitting = false
@@ -10,7 +13,13 @@ func _ready():
 	$Debree.one_shot = true
 	$SmokeRing.one_shot = true
 	$ExplosionAudio.play()
-	global_transform.origin.y = 0 # drop it onto the ground
+	$AnimationPlayer.play("explode")
+	global_transform.origin.y = 0.312 # drop it onto the ground
+	var dist = global_transform.origin.distance_to(player.global_transform.origin)
+	dist = clamp(dist,0,10)
+	camera.shake_strength = range_lerp(dist, 10, 0, 0, 1)
+	yield(get_tree().create_timer(5.0), "timeout")
+	queue_free()
 
 func explode():
 	show()
@@ -21,6 +30,3 @@ func explode():
 	$SmokeRing.emitting = true
 	$AnimationPlayer.play("explode")
 
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	queue_free()

@@ -36,7 +36,6 @@ func _on_InteractionArea_area_entered(area):
 		interactable_objects.append(area)
 
 
-
 func _on_InteractionArea_area_exited(area):
 	if area.has_method("use"):
 		interactable_objects.erase(area)

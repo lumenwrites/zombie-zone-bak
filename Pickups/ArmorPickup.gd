@@ -15,5 +15,12 @@ func use(body):
 		pickup_audio.play()
 		hide()
 
+func _on_Armor_body_entered(body):
+	if body is Player and body.get_node("Resources").gain_armor(50):
+		pickup_audio.play()
+		hide()
+
 func _on_PickupAudio_finished():
 	queue_free()
+
+

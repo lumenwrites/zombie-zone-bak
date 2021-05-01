@@ -10,11 +10,16 @@ onready var HUD = get_node("/root/World/HUD")
 
 var active_slot = 0
 var slots = [
-	Constants.WEAPONS["Assault Rifle"],
-	Constants.WEAPONS["Grenade"],
-	Constants.WEAPONS["Air Strike"],
-	Constants.WEAPONS["Rocket Launcher"],
-	Constants.WEAPONS["Mine"]
+	Constants.WEAPONS["Fists"],
+	Constants.WEAPONS["Fists"],
+	Constants.WEAPONS["Fists"],
+	Constants.WEAPONS["Fists"],
+	Constants.WEAPONS["Fists"]
+#	Constants.WEAPONS["Assault Rifle"],
+#	Constants.WEAPONS["Grenade"],
+#	Constants.WEAPONS["Air Strike"],
+#	Constants.WEAPONS["Rocket Launcher"],
+#	Constants.WEAPONS["Mine"]
 #	Constants.WEAPONS["Sniper Rifle"],
 #	Constants.WEAPONS["Sword"],
 #	Constants.WEAPONS["Gun"],
@@ -80,6 +85,7 @@ func pickup_weapon(weapon_drop):
 			HUD.update_slots(slots)
 			return true
 
+func swap_weapon(weapon_drop):
 	# If I'm already holding a weapon - drop it so I can switch to the new one.
 	var current_weapon = slots[active_slot]
 	if current_weapon["name"] != "Fists":
@@ -142,9 +148,20 @@ func spend_ammo(amount):
 	slots[active_slot]["ammo"] -= amount
 	slots[active_slot]["ammo"] = max(slots[active_slot]["ammo"], 0)
 	# TODO: HUD.activate_cooldown(active_slot, reload_rate)
+
 	HUD.update_slots(slots)
 	remove_if_empty()
 
+func reload():
+	var current_weapon = slots[active_slot]
+	if not current_weapon.has("ammo"): return
+	# Take the clip size from the ammo, unless there's less than that ammo left, then take remaining ammo.
+	var spend_ammo = min(current_weapon["clip_size"]-current_weapon["clip_ammo"], current_weapon["ammo"])
+	current_weapon["ammo"] -= spend_ammo
+	current_weapon["clip_ammo"] += spend_ammo
+
+	HUD.update_slots(slots)
+	remove_if_empty()
 
 func remove_if_empty():
 	if not slots[active_slot]["name"] in ["Grenade", "Health Pack", "Air Strike", "Mine", "Sentry"]: return

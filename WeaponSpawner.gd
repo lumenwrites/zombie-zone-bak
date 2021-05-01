@@ -6,6 +6,10 @@ export var damage = 50
 export var speed_modifier = 0.7
 var can_fire = true
 onready var parent = get_parent().get_parent()
+onready var switcher = get_parent()
+onready var build_audio = $BuildAudio
+onready var reload_audio = $ReloadAudio
+onready var weapon_model = $WeaponModel/Model
 
 func _ready():
 	parent.speed *= speed_modifier
@@ -21,9 +25,14 @@ func _physics_process(delta):
 func fire():
 	if can_fire:
 		spawn_weapon()
+		switcher.spend_ammo(1)
+		build_audio.play()
+		weapon_model.hide()
 		can_fire = false
 		yield(get_tree().create_timer(fire_rate), "timeout") # wait until timer times out
 		can_fire = true
+		weapon_model.show()
+		reload_audio.play()
 
 func spawn_weapon():
 	var instance = weapon.instance()

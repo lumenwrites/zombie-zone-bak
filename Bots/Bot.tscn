@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/characters/charlie.fbx" type="PackedScene" id=1]
+[ext_resource path="res://assets/characters/zombie.fbx" type="PackedScene" id=1]
 [ext_resource path="res://UI/HealthBar3D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Bots/Bot.gd" type="Script" id=3]
 [ext_resource path="res://Bots/EnemyWeaponSwitcher.gd" type="Script" id=4]
@@ -14,7 +14,7 @@ extents = Vector3( 0.25, 0.75, 0.25 )
 script = ExtResource( 3 )
 
 [node name="Model" parent="." instance=ExtResource( 1 )]
-transform = Transform( -100, 0, -3.25841e-05, 0, 100, 0, 3.25841e-05, 0, -100, 0, 0, 0 )
+transform = Transform( -100, 0, -3.89414e-05, 0, 100, 0, 3.89414e-05, 0, -100, 0, 0, 0 )
 
 [node name="WeaponSwitcher" type="Spatial" parent="."]
 script = ExtResource( 4 )

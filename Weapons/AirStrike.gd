@@ -19,7 +19,7 @@ onready var rocket_animation = $RocketAnimation
 onready var switcher = get_parent()
 onready var is_player = get_parent().get_parent() is Player
 onready var HUD = get_node("/root/World/HUD")
-
+onready var reloading_bar = $"../../ReloadingBar"
 
 func _ready():
 	target.set_as_toplevel(true)
@@ -70,8 +70,9 @@ func reload():
 		audio_empty.play()
 		return
 
+	
 	if is_player: 
-		HUD.activate_cooldown(0, reload_rate)
+		reloading_bar.activate_cooldown(reload_rate)
 
 	yield(get_tree().create_timer(reload_rate), "timeout")
 	can_fire = true
