@@ -25,7 +25,17 @@ func take_damage(damage):
 		camera.shake_strength += 0.1
 		if current_health <= 0: 
 			print("Die")
+			get_parent().hide()
+			spawn_blood_explosion(global_transform.origin)
+			yield(get_tree().create_timer(2), "timeout")
 			get_tree().change_scene("res://UI/Start.tscn")
+
+
+onready var BLOOD_EXPLOSION = preload("res://FX/BloodExplosion.tscn")
+func spawn_blood_explosion(pos):
+	var instance = BLOOD_EXPLOSION.instance()
+	instance.global_transform.origin = pos
+	get_node("/root/World").add_child(instance)
 
 func gain_health(value):
 	if current_health == 100: return
