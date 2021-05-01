@@ -1,0 +1,12 @@
+newmtl lowpoly_texture
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 127
+map_Kd /Users/ray/projects/Gamedev/Godot/TopDownFPS/Assets/textures/lowpoly-texture.png
+newmtl PolygonHeist_Material_01_A
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+Ns 127
+map_Kd /Users/ray/projects/Gamedev/Unity/Assets/Assets/PolygonHeist/Textures/Emissive_01.png

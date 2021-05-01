@@ -1,0 +1,6 @@
+newmtl lowpoly_texture
+Ka 0.996078 0.988235 1
+Kd 0.996078 0.988235 1
+Ks 0 0 0
+Ns 0
+map_Kd /Users/ray/projects/Gamedev/Godot/TopDownFPS/Assets/textures/lowpoly-texture.png
