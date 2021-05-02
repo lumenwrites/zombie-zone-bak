@@ -28,6 +28,7 @@ func take_damage(damage):
 			get_parent().hide()
 			spawn_blood_explosion(global_transform.origin)
 			set_physics_process(false)
+			get_parent().is_dead = true
 			yield(get_tree().create_timer(2), "timeout")
 			get_tree().change_scene("res://UI/Start.tscn")
 

@@ -4,7 +4,8 @@ const BULLET = preload("res://Weapons/Bullet.tscn")
 
 export var fire_rate = 0.12
 export var reload_rate = 1.0
-export var spread = 3
+export var spread = 10
+var current_spread = 0
 export var damage = 20
 export var bullet_speed = 30 # I want to make it faster for the sniper rifle
 export var speed_modifier = 1.0
@@ -39,6 +40,9 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("reload"): 
 		reload()
+	
+	if current_spread > 0:
+		current_spread = lerp(current_spread, 0, 1.0*delta)
 		
 func fire():
 	if not can_fire: return
@@ -58,8 +62,11 @@ func fire():
 
 func spread():
 	muzzle.rotation = Vector3(0,0,0)
-	muzzle.rotate_x(deg2rad(rand_range(-spread,spread)))
-	muzzle.rotate_y(deg2rad(rand_range(-spread,spread)))
+	muzzle.rotate_x(deg2rad(rand_range(-current_spread,current_spread)))
+	muzzle.rotate_y(deg2rad(rand_range(-current_spread,current_spread)))
+	# print(current_spread)
+	current_spread = lerp(current_spread, spread, 1.0/switcher.get("clip_size"))
+
 
 func spawn_bullet():
 	var instance = BULLET.instance()

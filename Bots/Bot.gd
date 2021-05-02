@@ -116,6 +116,7 @@ func _physics_process(delta):
 	vest.translation.y = body.translation.y
 
 	if not is_active: return
+	if PlayerNode.is_dead: return
 	player_pos = PlayerNode.global_transform.origin
 	my_pos = global_transform.origin
 	sightline.global_transform.origin = my_pos + Vector3(0,0.7,0)

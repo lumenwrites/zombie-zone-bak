@@ -8,6 +8,7 @@ export var gravity = 80
 export var jump_power = 25
 
 var vel = Vector3()
+var is_dead = false
 
 onready var camera = $CameraRig/Camera
 onready var cursor = $Cursor
@@ -21,6 +22,7 @@ func _ready():
 	look_at_crusor.set_as_toplevel(true)
 
 func _physics_process(delta):
+	if is_dead: return
 	vest.visible = $Resources.current_armor > 0
 	vest.translation.y = body.translation.y
 	look_at_cursor()
