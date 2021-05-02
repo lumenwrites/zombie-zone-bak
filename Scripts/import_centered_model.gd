@@ -6,7 +6,7 @@ const LOWPOLY_MATERIAL = preload("res://assets/materials/lowpoly_material.tres")
 func post_import(scene):
 	print("reimport!")
 	var combined_aabb
-	for object in scene.get_children(): # .get_node("RootNode")
+	for object in scene.get_node("RootNode").get_children(): # .get_node("RootNode")
 		var aabb = object.mesh.get_aabb()
 		if not combined_aabb:
 			combined_aabb = aabb
@@ -20,7 +20,7 @@ func post_import(scene):
 	var centered_model = MeshInstance.new()
 	centered_model.name = scene.name # GridMap doesn't work if all meshes have the same name. "CenteredModel"
 	centered_model.mesh = Mesh.new()
-	for object in scene.get_children(): # .get_node("RootNode")
+	for object in scene.get_node("RootNode").get_children(): # .get_node("RootNode")
 		var mesh = object.get_mesh()
 		mdt.create_from_surface(mesh, 0) #get surface 0 into mesh data tool
 		for vtx in range(mdt.get_vertex_count()): # Loop over the vertices

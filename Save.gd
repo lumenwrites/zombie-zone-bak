@@ -1,11 +1,10 @@
 extends Node
 
 
-const SAVE_GAME = "user://savegame.json"
+const SAVE_GAME = "user://zombie-zone-savegame.json"
 var save_data = {
 	"high_score": 0
 }
-
 
 func _ready():
 	load_data()
@@ -28,5 +27,8 @@ func load_data():
 	var data = parse_json(content)
 	save_data = data
 	file.close()
-	return data
 	
+	print("Load data ", save_data)
+	return data
+
+

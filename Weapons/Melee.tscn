@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/sounds/fist-hit.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/materials/lowpoly_material.tres" type="Material" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "hit1"
 length = 0.3
 step = 0.05
@@ -58,7 +58,7 @@ tracks/3/keys = {
 "values": [ Vector3( 0, 0, -45 ), Vector3( 0, 0, -45 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "hit2"
 length = 0.3
 step = 0.05
@@ -111,7 +111,7 @@ tracks/3/keys = {
 "values": [ Vector3( 0, 0, -45 ), Vector3( 0, 28.051, -45 ), Vector3( 0, 0, -45 ) ]
 }
 
-[sub_resource type="CapsuleShape" id=1]
+[sub_resource type="CapsuleShape" id=3]
 radius = 0.930465
 height = 0.938271
 
@@ -126,6 +126,7 @@ transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -
 
 [node name="Fist" type="MeshInstance" parent="Arm1"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+material_override = ExtResource( 4 )
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 4 )
 
@@ -134,13 +135,14 @@ transform = Transform( 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0
 
 [node name="Fist" type="MeshInstance" parent="Arm2"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+material_override = ExtResource( 4 )
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath(".")
-anims/hit1 = SubResource( 2 )
-anims/hit2 = SubResource( 3 )
+anims/hit1 = SubResource( 1 )
+anims/hit2 = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -148,4 +150,4 @@ anims/hit2 = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="DamageArea"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.568647 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )

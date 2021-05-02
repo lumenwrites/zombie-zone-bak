@@ -123,6 +123,7 @@ visible = false
 
 [node name="RocketMesh" type="MeshInstance" parent="Target/Rocket"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 3, 0, 0, -20 )
+material_override = ExtResource( 8 )
 mesh = ExtResource( 7 )
 material/0 = ExtResource( 8 )
 

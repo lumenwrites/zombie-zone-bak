@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/weapons/fist.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://assets/materials/lowpoly_material.tres" type="Material" id=7]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "reload"
 tracks/0/type = "value"
 tracks/0/path = NodePath("WeaponModel:translation")
@@ -35,8 +35,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( -26.9474, 17.3765, 12.7142 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "shoot"
+[sub_resource type="Animation" id=2]
 length = 0.1
 step = 0.01
 tracks/0/type = "value"
@@ -69,10 +68,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299, 0.693, 0 )
 script = ExtResource( 2 )
 
 [node name="WeaponModel" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Model" type="MeshInstance" parent="WeaponModel"]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
+material_override = ExtResource( 7 )
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 7 )
 
@@ -98,8 +97,8 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.857914 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/reload = SubResource( 2 )
-anims/shoot = SubResource( 1 )
+anims/reload = SubResource( 1 )
+anims/shoot = SubResource( 2 )
 
 [node name="AudioEmpty" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 3 )

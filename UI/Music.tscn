@@ -6,5 +6,6 @@
 [node name="Music" type="AudioStreamPlayer"]
 stream = ExtResource( 1 )
 script = ExtResource( 2 )
+play_music = false
 
 [connection signal="finished" from="." to="." method="_on_Music_finished"]

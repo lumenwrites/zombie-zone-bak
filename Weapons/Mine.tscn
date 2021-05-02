@@ -13,10 +13,12 @@ script = ExtResource( 5 )
 
 [node name="Light" type="MeshInstance" parent="."]
 visible = false
+material_override = ExtResource( 2 )
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 2 )
 
 [node name="Mine" type="MeshInstance" parent="."]
+material_override = ExtResource( 2 )
 mesh = ExtResource( 3 )
 material/0 = ExtResource( 2 )
 
@@ -26,4 +28,5 @@ shape = SubResource( 1 )
 [node name="Tick" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 4 )
 unit_size = 7.0
+
 [connection signal="body_entered" from="." to="." method="_on_Mine_body_entered"]

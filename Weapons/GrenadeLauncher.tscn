@@ -31,6 +31,7 @@ transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -
 
 [node name="Fist" type="MeshInstance" parent="Arm1"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+material_override = ExtResource( 6 )
 mesh = ExtResource( 4 )
 material/0 = ExtResource( 6 )
 
@@ -39,11 +40,14 @@ transform = Transform( -0.796013, 0.60528, 0, -0.60528, -0.796013, 0, 0, 0, 1, 0
 
 [node name="Fist" type="MeshInstance" parent="Arm2"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+material_override = ExtResource( 6 )
 mesh = ExtResource( 4 )
 material/0 = ExtResource( 6 )
 
 [node name="Grenade" type="MeshInstance" parent="Arm2"]
 transform = Transform( -0.0448228, -0.998994, 0, 0.998994, -0.0448228, 0, 0, 0, 1, -0.0400521, -0.0525675, 0 )
+material_override = ExtResource( 6 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 6 )
+
 [connection signal="finished" from="ChargeAudio" to="." method="_on_ChargeAudio_finished"]

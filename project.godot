@@ -52,7 +52,7 @@ config/icon="res://icon.png"
 
 Globals="*res://Scripts/Globals.gd"
 Constants="*res://Scripts/Constants.gd"
-Music="res://UI/Music.tscn"
+Music="*res://UI/Music.tscn"
 Save="*res://Save.gd"
 
 [debug]

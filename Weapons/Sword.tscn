@@ -118,11 +118,18 @@ damage = 50
 [node name="Arm1" parent="." index="0"]
 transform = Transform( 0.707107, -0.707107, 0, 0.598704, 0.598704, 0.532078, -0.376237, -0.376237, 0.846695, -0.284661, -0.275384, -0.342157 )
 
+[node name="Fist" parent="Arm1" index="0"]
+material_override = ExtResource( 4 )
+
 [node name="Arm2" parent="." index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.232007, 0, -0.515751 )
 
+[node name="Fist" parent="Arm2" index="0"]
+material_override = ExtResource( 4 )
+
 [node name="sword" type="MeshInstance" parent="Arm2" index="1"]
 transform = Transform( -4.37114e-08, 0, -0.999999, -1, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1.91068e-15, 0, 0, 0 )
+material_override = ExtResource( 4 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 4 )
 

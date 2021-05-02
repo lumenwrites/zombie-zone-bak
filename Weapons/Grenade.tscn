@@ -37,6 +37,7 @@ omni_attenuation = 0.450625
 
 [node name="Mesh" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0158404, 0 )
+material_override = ExtResource( 4 )
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 4 )
 

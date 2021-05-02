@@ -77,14 +77,8 @@ material/3 = ExtResource( 3 )
 [node name="Arm1" parent="WeaponModel" index="1"]
 transform = Transform( 0.369312, -0.0376443, -0.928544, -0.298956, 0.941252, -0.157065, 0.879906, 0.335599, 0.336363, -0.000854254, -0.259675, -0.441415 )
 
-[node name="Fist" parent="WeaponModel/Arm1" index="0"]
-material_override = ExtResource( 3 )
-
 [node name="Arm2" parent="WeaponModel" index="2"]
 transform = Transform( -0.00748003, 0.876017, 0.482226, -0.999867, 0.000446098, -0.0163198, -0.0145115, -0.482283, 0.875895, 0.0346358, -0.168177, -0.445874 )
-
-[node name="Fist" parent="WeaponModel/Arm2" index="0"]
-material_override = ExtResource( 3 )
 
 [node name="Muzzle" parent="." index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.798886 )
