@@ -41,6 +41,7 @@ func spawn_blood_splatter(body):
 
 func push(body):
 	# if "vel" in body and not body is Player:
+	if not is_instance_valid(parent): return
 	var dir = parent.global_transform.origin.direction_to(body.global_transform.origin) * Vector3(1,0,1)
 	dir = dir.normalized()
 	body.vel += dir*push_force

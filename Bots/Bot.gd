@@ -5,19 +5,19 @@ export(String, "Fists", "Sword", "Gun", "Shotgun", "Assault Rifle", "Sniper Rifl
 const SETTINGS = {
 	"Fists": {
 		"target_distance": 1.5,
-		"aiming_speed": 4,
+		"aiming_speed": 3,
 		"aiming_accuracy": 0.95,
 		"offcenter": false
 	},
 	"Zombie Fists": {
 		"target_distance": 1.5,
-		"aiming_speed": 4,
+		"aiming_speed": 3,
 		"aiming_accuracy": 0.95,
 		"offcenter": false
 	},
 	"Sword": {
 		"target_distance": 2,
-		"aiming_speed": 4,
+		"aiming_speed": 3,
 		"aiming_accuracy": 0.9,
 		"offcenter": false
 	},
@@ -64,8 +64,10 @@ export var aiming_speed = 5
 export var aiming_accuracy = 0.95 # shoot only once forward.dot(dir) > aiming_accuracy
 export var is_active = true
 export var do_attack = true
+export var armored = false
+export var delay = 0.0
 
-export var current_health = 75
+export var current_health = 100
 
 export var speed = 30 # 50 # 75
 export var friction = 0.875
@@ -99,10 +101,16 @@ func _ready():
 	weapon = switcher.get_children()[0]
 	weapon.damage *= 0.25
 	# Armored
-	if rand_range(0,1) < 0.5:
+	if armored:
 		vest.show()
 		current_health *= 2
 		print(current_health)
+	if delay:
+		is_active = false
+		hide()
+		yield(get_tree().create_timer(delay), "timeout")
+		is_active = true
+		show()
 
 func _physics_process(delta):
 	vest.translation.y = body.translation.y
@@ -174,6 +182,7 @@ func follow_path(delta):
 
 
 func take_damage(damage):
+	if not is_active: return
 	if current_health > 0:
 		current_health -= damage
 		healthbar.update_progressbar(current_health,100)

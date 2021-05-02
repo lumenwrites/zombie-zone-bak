@@ -4,7 +4,7 @@ export var max_damage = 100
 export var min_damage = 50
 export var max_range = 5.0
 export var explosion_delay = 2.0
-export var push_force = 30
+export var push_force = 5
 var exploded = false
 
 onready var damage_area = $DamageArea

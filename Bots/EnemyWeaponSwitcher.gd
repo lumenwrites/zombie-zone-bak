@@ -41,7 +41,11 @@ func set(property, value):
 	slots[active_slot][property] = value
 
 func spend_clip_ammo():
+	return
 	slots[active_slot]["clip_ammo"] -= 1
+	
+func reload():
+	pass
 
 func spend_ammo(amount):
 	# I don't want bots to run out of ammo when they reload the weapon

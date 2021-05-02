@@ -1,6 +1,6 @@
 extends Spatial
 
-export var max_damage = 120
+export var max_damage = 200
 export var min_damage = 50
 export var max_range = 3.0
 export var explosion_delay = 1.0

@@ -2,9 +2,9 @@ extends Area
 
 export (float) var steer_force = 5
 export var speed = 10 # 30 # 50
-export var max_damage = 100
+export var max_damage = 150
 export var min_damage = 25
-export var max_range = 5.0
+export var max_range = 4.0
 var exploded = false
 
 var max_lifespan = 20.0

@@ -8,6 +8,7 @@ export var spread = 3
 export var damage = 20
 export var bullet_speed = 30 # I want to make it faster for the sniper rifle
 export var speed_modifier = 1.0
+export var push_force = 10
 var can_fire = true
 var is_reloading = false
 
@@ -65,6 +66,7 @@ func spawn_bullet():
 	instance.global_transform = muzzle.global_transform
 	instance.damage = damage
 	instance.speed = bullet_speed
+	instance.push_force = push_force # shotgun is different
 	instance.parent = get_parent().get_parent() # So I could make bullets ignore one who's shooting them
 	get_node("/root/World").add_child(instance)
 
@@ -77,7 +79,9 @@ func reload():
 		audio_empty.play()
 		return
 
-	reloading_bar.activate_cooldown(reload_rate)
+	if parent is Player: 
+		reloading_bar.activate_cooldown(reload_rate)
+
 	animation.play("reload")
 	is_reloading = true
 	yield(get_tree().create_timer(reload_rate), "timeout")

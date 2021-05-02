@@ -62,59 +62,103 @@ fog_color = Color( 0.0431373, 0.141176, 0.243137, 1 )
 fog_sun_color = Color( 1, 0.788235, 0.478431, 1 )
 fog_depth_end = 40.0
 tonemap_mode = 3
-auto_exposure_enabled = true
 ssao_radius2 = 5.0
 ssao_intensity2 = 0.5
 ssao_quality = 2
 glow_blend_mode = 1
+adjustment_enabled = true
+adjustment_brightness = 0.95
+adjustment_contrast = 1.05
 
 [node name="World" type="Spatial"]
 script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 3 )
 
 [node name="BotSpawn" parent="." instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -10 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -12 )
 max_enemies = 2
-spawn_frequency = 5.0
+spawn_frequency = 7.0
 
 [node name="BotSpawn2" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 14 )
-active = false
 max_enemies = 2
-spawn_frequency = 5.0
+spawn_frequency = 7.0
 
 [node name="Bots" type="Spatial" parent="."]
 
 [node name="Bot1" parent="Bots" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -10 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -12 )
+speed = 25
 
 [node name="Bot2" parent="Bots" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 14 )
+default_weapon = "Sword"
+delay = 0.5
+speed = 35
+
+[node name="Bot3" parent="Bots" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 18 )
+default_weapon = "Shotgun"
+delay = 4.0
+
+[node name="Bot4" parent="Bots" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -11 )
+default_weapon = "Assault Rifle"
+delay = 10.0
+speed = 25
+
+[node name="Bot5" parent="Bots" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 0, -9 )
+default_weapon = "Rocket Launcher"
+delay = 20.0
+speed = 25
+
+[node name="Bot6" parent="Bots" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 18 )
+delay = 25.0
+
+[node name="Bot7" parent="Bots" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -11 )
+delay = 30.0
+speed = 25
 
 [node name="Pickups" type="Spatial" parent="."]
 
-[node name="Crate" parent="Pickups" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6081, 0.5, -12.8278 )
+[node name="Crate1" parent="Pickups" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1693, 0.5, -12.6361 )
+default_weapon = "Mine"
+random = false
+
+[node name="Crate7" parent="Pickups" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1693, 0.5, -10.6361 )
+default_weapon = "Air Strike"
+random = false
 
 [node name="Crate2" parent="Pickups" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1693, 0.5, -12.6361 )
+default_weapon = "Sentry"
+random = false
 
 [node name="Crate3" parent="Pickups" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1933, 0.5, -12.7684 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1933, 0.5, -12.7684 )
 
 [node name="Crate4" parent="Pickups" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.02363, 0.5, 11.7557 )
 
 [node name="Crate5" parent="Pickups" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1264, 0.5, -2.69608 )
+default_weapon = "Armor"
+random = false
 
 [node name="Crate6" parent="Pickups" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9673, 0.5, 3.0403 )
+default_weapon = "Assault Rifle"
+random = false
 
 [node name="PickupsSpread" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 0 )
 
 [node name="Sword" parent="PickupsSpread" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -9 )
@@ -272,7 +316,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 15 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0.5, 12 )
 
 [node name="ExplosiveBarrel7" parent="." instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0.5, -10 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0.5, -13 )
 
 [node name="ExplosiveBarrel2" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0.5, -5 )
@@ -280,8 +324,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0.5, -5 )
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 3, 0 )
 visible = false
-bake_cell_size = 0.15
-bake_extents = Vector3( 50, 5, 20 )
 light_data = ExtResource( 9 )
 
 [node name="Camera" type="Camera" parent="."]

@@ -7,9 +7,10 @@
 
 [node name="Shotgun" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-fire_rate = 0.6
+fire_rate = 0.75
 spread = 20
 damage = 10
+push_force = 1
 
 [node name="Model" parent="WeaponModel" index="0"]
 mesh = ExtResource( 2 )

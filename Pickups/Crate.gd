@@ -1,6 +1,7 @@
 extends RigidBody
 
-
+export(String, "Sword", "Gun", "Shotgun", "Assault Rifle", "Sniper Rifle", "Grenade", "Mine", "Sentry", "Rocket Launcher", "Air Strike", "Health Pack", "Armor", "Ammo") var default_weapon = "Fists"
+export var random = true
 export var max_health = 100.0
 var current_health
 
@@ -39,12 +40,20 @@ func drop_loot():
 	var instance
 	randomize()
 	instance = WEAPON_PICKUP.instance()
-	instance.weapon_type = weapon_types[int(rand_range(0,weapon_types.size()))]
-	if rand_range(0,1) < 0.3:
-		instance.weapon_type = "Health Pack"
-	# 30% of the time spawn a support item.
-	if rand_range(0,1) < 0.3:
-		instance = objects[int(rand_range(0,objects.size()))].instance()
+
+	if random:
+		instance.weapon_type = weapon_types[int(rand_range(0,weapon_types.size()))]
+		if rand_range(0,1) < 0.3:
+			instance.weapon_type = "Health Pack"
+		# 30% of the time spawn a support item.
+		if rand_range(0,1) < 0.3:
+			instance = objects[int(rand_range(0,objects.size()))].instance()
+	
+	if not random:
+		instance.weapon_type = default_weapon
+		if default_weapon == "Ammo": instance = objects[0].instance()
+		if default_weapon == "Armor": instance = objects[1].instance()
+
 	instance.global_transform.origin = global_transform.origin
 	pickups.add_child(instance)
 	

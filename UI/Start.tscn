@@ -319,4 +319,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0.5, -10 )
 
 [node name="ExplosiveBarrel2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0.5, -5 )
+
 [connection signal="pressed" from="StartScreen/CenterContainer/VBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]

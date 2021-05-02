@@ -66,6 +66,7 @@ func activate_slot(slot_number):
 
 
 func pickup_weapon(weapon_drop):
+	
 	# If I already have a weapon of this type - extract the ammo
 	for slot in slots:
 		if slot["name"] == weapon_drop["name"] and slot.has("ammo"):
@@ -76,6 +77,10 @@ func pickup_weapon(weapon_drop):
 			slot["ammo"] = clamp(slot["ammo"], 0, slot["max_ammo"])
 			HUD.update_slots(slots)
 			return true
+		var ammoless_weapons = ["Sword"]
+		if weapon_drop["name"] in ammoless_weapons and slot["name"] in ammoless_weapons: 
+			# If it's a sword and I already have it, I want to stop the code below from adding it to invetntory again
+			return false
 	
 	# If there's an empty slot - put the weapon into that slot
 	for slot_id in slots.size():
@@ -86,6 +91,7 @@ func pickup_weapon(weapon_drop):
 			return true
 
 func swap_weapon(weapon_drop):
+	if pickup_weapon(weapon_drop): return true # Just in case I click switch when I already have the weapon, then I need to extract ammo
 	# If I'm already holding a weapon - drop it so I can switch to the new one.
 	var current_weapon = slots[active_slot]
 	if current_weapon["name"] != "Fists":

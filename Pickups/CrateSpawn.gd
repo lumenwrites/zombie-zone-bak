@@ -7,7 +7,12 @@ export var spawn_frequency = 20.0
 export var level_size = 32
 export var drop_height = 15
 
-var can_spawn = true
+var can_spawn = false
+
+func _ready():
+	if active:
+		yield(get_tree().create_timer(spawn_frequency), "timeout")
+		can_spawn = true
 
 func _physics_process(delta):
 	if active and can_spawn:

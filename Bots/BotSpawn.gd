@@ -22,5 +22,7 @@ func spawn_bot():
 	instance.global_transform.origin = global_transform.origin
 	randomize()
 	var weapons = ["Fists", "Sword", "Gun", "Shotgun", "Assault Rifle", "Sniper Rifle", "Grenade", "Rocket Launcher", "Zombie Fists"]
+	weapons = ["Fists", "Sword", "Gun", "Shotgun", "Assault Rifle", "Rocket Launcher"]
 	instance.default_weapon = weapons[rand_range(0,weapons.size())]
+	#instance.armored = rand_range(0,1) < 0.5
 	bots.add_child(instance)

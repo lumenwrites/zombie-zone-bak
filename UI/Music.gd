@@ -1,9 +1,10 @@
 extends AudioStreamPlayer
 
+var play_music = true
 
 func _ready():
-	return
-	play()
+	if play_music:
+		play()
 
 
 func _on_Music_finished():

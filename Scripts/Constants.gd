@@ -38,7 +38,7 @@ const WEAPONS = {
 		"scene": preload("res://Weapons/Weapon.tscn"),
 		"clip_ammo": 15,
 		"clip_size": 15,
-		"ammo": 5,
+		"ammo": 50,
 		"max_ammo": 150,
 		"pickup_ammo_amount": 50
 	},
