@@ -191,11 +191,14 @@ func take_damage(damage):
 		if current_health <= 0: 
 			switcher.drop_weapon()
 			HUD.increment_score()
-			spawn_blood_explosion(global_transform.origin)
+			spawn_blood_explosion()
 			queue_free()
 
 onready var BLOOD_EXPLOSION = preload("res://FX/BloodExplosion.tscn")
-func spawn_blood_explosion(pos):
+func spawn_blood_explosion():
 	var instance = BLOOD_EXPLOSION.instance()
-	instance.global_transform.origin = pos
 	get_node("/root/World").add_child(instance)
+	# has to be after adding it as a child, otherwise Im getting
+	# get_global_transform: Condition "!is_inside_tree()" is true. Returned: Transform()
+	# only here and not on any other spawns, for some reason.
+	instance.global_transform.origin = global_transform.origin

@@ -17,6 +17,8 @@ func _ready():
 	viewport.size.y = height
 
 	update_progressbar(100, 100)
+	# If I just set it as a parameter on sprite 3D, it throws errors during runtime.
+	$Sprite3D.texture = $Viewport.get_texture()
 
 
 func update_progressbar(current_value, max_value):

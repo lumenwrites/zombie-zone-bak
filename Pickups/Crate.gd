@@ -13,7 +13,7 @@ var objects = [
 ]
 var weapon_types = ["Sword", "Gun", "Shotgun", "Assault Rifle", "Sniper Rifle", "Grenade", "Rocket Launcher", "Air Strike", "Mine", "Sentry"]
 
-onready var pickups = get_node("/root/World/Pickups")
+onready var pickups = get_parent() # get_node("/root/World/Pickups")
 
 func _ready():
 	# I disable rigid body when it hit the ground and stopped moving

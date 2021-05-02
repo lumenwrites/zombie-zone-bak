@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-var play_music = true
+export var play_music = true
 
 func _ready():
 	if play_music:

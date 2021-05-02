@@ -495,16 +495,19 @@ transform = Transform( 1, -8.74228e-08, 3.89414e-07, -3.90268e-07, -0.00998306, 
 
 [node name="right_foot_geo2" type="MeshInstance" parent="Model/character_placer_ctrl/body_ctrl/right_leg_root/right_upper_leg/right_lower_leg/right_foot"]
 transform = Transform( 1, 1.38228e-08, 9.67593e-08, 4.37114e-08, -0.948683, -0.316228, 8.74228e-08, 0.316228, -0.948683, -0.00130498, 0.000501867, -0.000413323 )
+material_override = ExtResource( 11 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="right_lower_leg_geo2" type="MeshInstance" parent="Model/character_placer_ctrl/body_ctrl/right_leg_root/right_upper_leg/right_lower_leg"]
 transform = Transform( 1, -9.31486e-08, 2.96102e-08, 4.37114e-08, 0.155238, -0.987877, 8.74228e-08, 0.987877, 0.155238, -0.00130498, -0.00032478, -0.00223626 )
+material_override = ExtResource( 11 )
 mesh = SubResource( 2 )
 material/0 = null
 
 [node name="right_upper_leg_geo2" type="MeshInstance" parent="Model/character_placer_ctrl/body_ctrl/right_leg_root/right_upper_leg"]
 transform = Transform( 1, -8.54009e-08, 4.75406e-08, 4.37114e-08, -0.0442913, -0.999019, 8.74228e-08, 0.999019, -0.0442913, -0.00130498, 0.000126363, -0.00385541 )
+material_override = ExtResource( 11 )
 mesh = SubResource( 3 )
 material/0 = null
 
@@ -522,16 +525,19 @@ transform = Transform( 1, 9.31294e-08, 7.93925e-08, -1.02857e-07, 0.288108, 0.95
 
 [node name="left_foot_geo2" type="MeshInstance" parent="Model/character_placer_ctrl/body_ctrl/left_leg_root/left_upper_leg/left_lower_leg/left_foot"]
 transform = Transform( 1, 1.38228e-08, 9.67593e-08, 4.37114e-08, -0.948683, -0.316228, 8.74228e-08, 0.316228, -0.948683, -0.00130498, 0.000501867, -0.000413323 )
+material_override = ExtResource( 11 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="left_lower_leg_geo2" type="MeshInstance" parent="Model/character_placer_ctrl/body_ctrl/left_leg_root/left_upper_leg/left_lower_leg"]
 transform = Transform( 1, -9.31486e-08, 2.96102e-08, 4.37114e-08, 0.155238, -0.987877, 8.74228e-08, 0.987877, 0.155238, -0.00130498, -0.00032478, -0.00223626 )
+material_override = ExtResource( 11 )
 mesh = SubResource( 2 )
 material/0 = null
 
 [node name="left_upper_leg_geo2" type="MeshInstance" parent="Model/character_placer_ctrl/body_ctrl/left_leg_root/left_upper_leg"]
 transform = Transform( 1, -8.54009e-08, 4.75406e-08, 4.37114e-08, -0.0442913, -0.999019, 8.74228e-08, 0.999019, -0.0442913, -0.00130498, 0.000126363, -0.00385541 )
+material_override = ExtResource( 11 )
 mesh = SubResource( 3 )
 material/0 = null
 
@@ -540,6 +546,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00470657, 0 )
 
 [node name="head_geo2" type="MeshInstance" parent="Model/character_placer_ctrl/body_ctrl/head_ctrl"]
 transform = Transform( -1, 0, 0, 0, 1, 8.74228e-08, 0, -8.74228e-08, 1, -1.11022e-18, -0.00965448, -1.19033e-25 )
+material_override = ExtResource( 11 )
 mesh = SubResource( 4 )
 material/0 = null
 
@@ -557,6 +564,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00713837, -0.0089939, 2.646
 
 [node name="body_geo2" type="MeshInstance" parent="Model/character_placer_ctrl/body_ctrl"]
 transform = Transform( -1, 0, 0, 0, 1, 8.74228e-08, 0, -8.74228e-08, 1, -1.11022e-18, -0.00494791, -1.19033e-25 )
+material_override = ExtResource( 11 )
 mesh = SubResource( 5 )
 material/0 = null
 
@@ -619,5 +627,6 @@ visible = false
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
 mesh = ExtResource( 10 )
 material/0 = ExtResource( 11 )
+
 [connection signal="area_entered" from="InteractionArea" to="InteractionArea" method="_on_InteractionArea_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="InteractionArea" method="_on_InteractionArea_area_exited"]

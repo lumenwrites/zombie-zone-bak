@@ -27,11 +27,11 @@ func drop_weapon():
 	var current_weapon = slots[active_slot]
 	if not current_weapon["name"] in ["Fists", "Zombie Fists"]:
 		var instance = WEAPON_PICKUP.instance()
+		pickups.add_child(instance)
 		# Drop the weapon slightly in front of the player
 		instance.global_transform.origin = global_transform.origin - global_transform.basis.z*1.5
 		# Drop the weapon from currently active slot
 		instance.weapon_data = current_weapon
-		pickups.add_child(instance)
 
 func get(property):
 	# TODO Sometimes crashes here

@@ -6,6 +6,10 @@ var cooldown_timer = 0.0
 onready var progress_bar = $Viewport/ProgressBar
 onready var progress_label = $Viewport/ProgressLabel
 
+func _ready():
+	# If I just set it as a parameter on sprite 3D, it throws errors during runtime.
+	$Sprite3D.texture = $Viewport.get_texture()
+
 func _process(delta):
 	if cooldown_timer > 0:
 		show()

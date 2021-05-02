@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/materials/lowpoly_material.tres" type="Material" id=1]
 [ext_resource path="res://assets/levels/simple-city.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Pickups/WeaponPickup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Pickups/AmmoBox.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Environment/lightmap-20x5x20-015cell.tres" type="BakedLightmapData" id=9]
 [ext_resource path="res://Pickups/ArmorPickup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Bots/Bot.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Bots/BotSpawn.tscn" type="PackedScene" id=12]
@@ -320,11 +319,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0.5, -13 )
 
 [node name="ExplosiveBarrel2" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0.5, -5 )
-
-[node name="BakedLightmap" type="BakedLightmap" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 3, 0 )
-visible = false
-light_data = ExtResource( 9 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 10, 0 )
