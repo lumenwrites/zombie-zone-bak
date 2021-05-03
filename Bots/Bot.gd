@@ -62,12 +62,14 @@ const SETTINGS = {
 export var target_distance = 2
 export var aiming_speed = 5
 export var aiming_accuracy = 0.95 # shoot only once forward.dot(dir) > aiming_accuracy
+export var weapon_damage_multiplier = 0.25
 export var is_active = true
 export var do_attack = true
 export var armored = false
 export var delay = 0.0
 
-export var current_health = 100
+export var max_health = 100
+var current_health = max_health
 
 export var speed = 30 # 50 # 75
 export var friction = 0.875
@@ -91,20 +93,22 @@ onready var body = $Model/character_placer_ctrl/body_ctrl
 onready var vest = $Vest
 
 func _ready():
+	sightline.set_as_toplevel(true)
+	weapon_sightline.set_as_toplevel(true) 
+
 	target_distance = SETTINGS[default_weapon]["target_distance"]
 	aiming_speed = SETTINGS[default_weapon]["aiming_speed"]
 	aiming_accuracy = SETTINGS[default_weapon]["aiming_accuracy"]
-	sightline.set_as_toplevel(true)
-	weapon_sightline.set_as_toplevel(true) 
+
 	switcher.slots[0] = Constants.WEAPONS[default_weapon].duplicate(true)
 	switcher.switch_weapon()
 	weapon = switcher.get_children()[0]
-	weapon.damage *= 0.25
+	weapon.damage *= weapon_damage_multiplier
 	# Armored
 	if armored:
 		vest.show()
-		current_health *= 2
-		print(current_health)
+		max_health *= 2
+		current_health = max_health
 	if delay:
 		is_active = false
 		hide()
@@ -186,9 +190,10 @@ func take_damage(damage):
 	if not is_active: return
 	if current_health > 0:
 		current_health -= damage
-		healthbar.update_progressbar(current_health,100)
-		if current_health <= 100: 
-			vest.hide()
+		healthbar.update_progressbar(current_health,max_health)
+		# Hide armor once it's destroyed. This looks weird, just keep armor on and double the health.
+#		if current_health <= 100: 
+#			vest.hide()
 		if current_health <= 0: 
 			switcher.drop_weapon()
 			HUD.increment_score()
